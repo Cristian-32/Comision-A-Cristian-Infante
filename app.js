@@ -1,5 +1,6 @@
 import express from 'express';
 import { foroRouter } from './src/routes/routes.js';
+import { dbStart } from './src/config/foro_db.js';
 
 const app = express();
 
@@ -15,5 +16,6 @@ app.use('/', foroRouter);
 
 app.listen(port, () => {
     console.log('Server Listening http://localhost:',port);
+    dbStart();
 })
 
