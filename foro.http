@@ -11,14 +11,16 @@ Content-Type: application/json
     "imageUrl":"www.google.com"
 }
 ### Actualizar tarea
-PUT http://localhost:3000/api/foro/7
+PUT http://localhost:3000/api/foro/3
 Content-Type: application/json
 
 {
-    "title":"Cambio de titulo"
+    "title":"Cambio de titulo",
+    "query":"Hola soy una modificación",
+    "imageUrl":"www.gmail.com"
 }
 
 
 ### Eliminar tarea
-DELETE http://localhost:3000/api/foro/6
+DELETE http://localhost:3000/api/foro/10
 
