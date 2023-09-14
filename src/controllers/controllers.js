@@ -39,6 +39,7 @@ export const ctrlUpdateForo = async(req,res) => {
             })
         }
         foro.update(req.body)
+        
         return res.status(200).json(foro)
     } catch (error) {
         console.error(error)
