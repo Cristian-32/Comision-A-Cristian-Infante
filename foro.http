@@ -3,9 +3,21 @@ GET http://localhost:3000/api/foro
 
 ### Crear tarea
 POST http://localhost:3000/api/foro
+Content-Type: application/json
 
+{
+    "title":"Titulo",
+    "query":"Consulta",
+    "imageUrl":"www.google.com"
+}
 ### Actualizar tarea
 PUT http://localhost:3000/api/foro
+Content-Type: application/json
+
+{
+    "titulo":"Cambio de título"
+}
+
 
 ### Eliminar tarea
 DELETE http://localhost:3000/api/foro

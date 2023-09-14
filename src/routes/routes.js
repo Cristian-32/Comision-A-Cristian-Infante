@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { ctrlGetForo, ctrlCreateForo, ctrlUpdateForo,ctrlDeleteForo } from '../controllers/controllers.js';
+import { createSchematarea } from '../models/schemas/schema.tarea.js';
 
 const foroRouter = Router();
 
@@ -7,10 +8,10 @@ const foroRouter = Router();
 foroRouter.get('/api/foro', ctrlGetForo)
 
 // Direccion de una API para crear una tarea
-foroRouter.post('/api/foro', ctrlCreateForo)
+foroRouter.post('/api/foro',createSchematarea ,ctrlCreateForo)
 
 // Direccion de una API para actualizar una tarea
-foroRouter.put('/api/foro/:id', ctrlUpdateForo)
+foroRouter.put('/api/foro/:id',createSchematarea, ctrlUpdateForo)
 
 // Direccion de una API para eliminar una tarea
 foroRouter.delete('/api/foro/:id', ctrlDeleteForo)

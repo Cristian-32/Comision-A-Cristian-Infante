@@ -8,10 +8,10 @@ export const dataBase = new Sequelize('foro_db', 'root','',{
 export const dbStart = async () => {
     try {
         await dataBase.authenticate();
-        //await database.sync({force:true}); //para borrar todos los datos cargados
         await dataBase.sync();
+        //await dataBase.sync({force:true}); //para borrar todos los datos cargados
         console.log('Conexión establecida correctamente');
     } catch (error) {
-        conosole.error('Imposible conectarse a la base de datos',error);
+        console.error('Imposible conectarse a la base de datos',error);
     }
 }

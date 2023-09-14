@@ -1,4 +1,4 @@
-import { tareasModelo} from "../models/tareas.js"
+import { tareasModelo } from "../models/tareas.js"
 
 // Controlador para traer las tareas
 export const ctrlGetForo = async (req,res) =>{
@@ -30,6 +30,7 @@ export const ctrlCreateForo = async (req,res) => {
 
 // Controlador para actualizar una tarea
 export const ctrlUpdateForo = async(req,res) => {
+    const {id} = req.params
     try {
         const foro = await tareasModelo.findByPk(id)
         if(!foro){
@@ -48,6 +49,7 @@ export const ctrlUpdateForo = async(req,res) => {
 }
 
 export const ctrlDeleteForo = async (req,res) => {
+    const {id} = req.params
     try {
         const foroDeleted = await tareasModelo.destroy({
             where:{

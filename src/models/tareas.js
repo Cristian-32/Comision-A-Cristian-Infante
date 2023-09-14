@@ -1,4 +1,4 @@
-import { DataTypes, Sequelize } from "sequelize";
+import { DataTypes } from "sequelize";
 import { dataBase } from "../config/foro_db.js";
 
 export const tareasModelo = dataBase.define('Tarea',{
