@@ -1,21 +1,18 @@
 import { Router } from 'express'
+import { ctrlGetForo, ctrlCreateForo, ctrlUpdateForo,ctrlDeleteForo } from '../controllers/controllers.js';
 
-const router = Router();
+const foroRouter = Router();
 
 // Direccion de una API para traer todas las tareas
-
-router.get('/api/foro', ctrlGetForo)
+foroRouter.get('/api/foro', ctrlGetForo)
 
 // Direccion de una API para crear una tarea
-
-router.post('/api/foro', ctrlCreateForo)
+foroRouter.post('/api/foro', ctrlCreateForo)
 
 // Direccion de una API para actualizar una tarea
-
-router.put('/api/foro/:id', ctrlUpdateForo)
+foroRouter.put('/api/foro/:id', ctrlUpdateForo)
 
 // Direccion de una API para eliminar una tarea
+foroRouter.delete('/api/foro/:id', ctrlDeleteForo)
 
-router.delete('/api/foro/:id', ctrlDeleteForo)
-
-export{router};
+export{foroRouter};
