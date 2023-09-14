@@ -1,0 +1,12 @@
+### Traer tareas
+GET http://localhost:3000/api/foro
+
+### Crear tarea
+POST http://localhost:3000/api/foro
+
+### Actualizar tarea
+PUT http://localhost:3000/api/foro
+
+### Eliminar tarea
+DELETE http://localhost:3000/api/foro
+
