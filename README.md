@@ -5,8 +5,8 @@ El trabajo consiste en hacer una página WEB personal, en dónde cada publicaci�
 2) Contenido informativo
 3) Fecha de creación
 4) Adjuntar link de una imagen de internet para relacionarla
-Hay que hacer un formulario de creación de posts que permita ingresar los item anteriores (↑)
-Hasta ahora se realizó el servidor y la base de datos funcionan correctamente se puede:
+# Hay que hacer un formulario de creación de posts que permita ingresar los item anteriores (↑)
+# Hasta ahora se realizó el servidor y la base de datos funcionan correctamente se puede:
 1) GET (Traer)
 2) POST (Crear)
 3) UPDATE (Modificar)
