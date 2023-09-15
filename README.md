@@ -11,6 +11,6 @@ El trabajo consiste en hacer una página WEB personal, en dónde cada publicaci�
 2) POST (Crear)
 3) UPDATE (Modificar)
 4) DELETE (Eliminar)
-La Aplicación de base de datos que se utiliza es XAMPP
+# La Aplicación de base de datos que se utiliza es XAMPP
 # ¡ IMPORTANTE !
 # Actualmente el trabajo está incompleto falta hacer html,css y javascript y pasarlo a EJS
