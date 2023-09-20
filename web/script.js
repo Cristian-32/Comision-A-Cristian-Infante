@@ -1,4 +1,14 @@
+const contenedor = document.getElementById('contenedor-row')
+const btnCrear = document.getElementById('btn-crear')
+const modal = new bootstrap.Modal(document.getElementById('modal'))
+const btnSubirPublicacion = document.getElementById('btn-subir-publicacion')
+const titulo = document.getElementById('titulo')
+const descripcion = document.getElementById('descripcion')
+const imagenUrl = document.getElementById('imagen-url')
 let resultado = ''
+let opcion = ''
+
+console.log(contenedor)
 
 fetch('http://localhost:3000/api/foro')
     .then(res => res.json())
@@ -9,18 +19,27 @@ fetch('http://localhost:3000/api/foro')
                 <div class="card" style="width: 18rem;">
                     <img src="${foro.imageUrl}">
                     <div class="card-body">
-                        <h5 class="card-title">${foro.titulo}</h5>
+                        <h5 class="card-title">${foro.title}</h5>
                         <p class="card-text">${foro.query}</p>
                         <div>
-                            <button href="#" class="btn btn" id="btn-editar">Editar</button>
-                            <button href="#" class="btn btn" id="btn-eliminar">Eliminar</button>
+                            <button class="btn btn" id="btn-editar">Editar</button>
+                            <button class="btn btn" id="btn-eliminar">Eliminar</button>
                         </div> 
                     </div>
                 </div>
             </article>`
             
-            
-            
+            contenedor.innerHTML = resultado
         });
     })
+
+// Botón para crear nueva publicación utilizando el modal de bootstrap
+btnCrear.addEventListener('click', () => {
+    option = "nuevo"
+    btnSubirPublicacion.textContent = "Publicar"
+    modal.show()
+    titulo.value = "" // Al cancelar la publicación y hacer una nueva los espacios para ingresar están vacíos
+    descripcion.value = ""
+    imagenUrl.value = ""
+})
 

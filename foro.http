@@ -6,7 +6,7 @@ POST http://localhost:3000/api/foro
 Content-Type: application/json
 
 {
-    "title":"Título 5",
+    "title":"Título",
     "query":"5ta publicación",
     "imageUrl":"https://www.xtrafondos.com/wallpapers/resized/paisaje-digital-en-atardecer-5846.jpg?s=large"
 }
