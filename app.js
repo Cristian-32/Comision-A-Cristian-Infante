@@ -10,14 +10,14 @@ app.use(cors())
 const port = 3000;
 
 // Servidor Básico
-//app.get('/',(req,res) => {
-//    res.send('SERVIDOR PREPARADO');
-//})
+app.get('/',(req,res) => {
+    res.send('SERVIDOR PREPARADO');
+})
 
 app.use('/', foroRouter);
 
 app.listen(port, () => {
-    console.log('Server Listening http://localhost:',port);
+    console.log(`Server Listening http://localhost:${port}`);
     dbStart();
 })
 

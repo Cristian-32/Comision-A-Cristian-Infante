@@ -5,6 +5,7 @@ const btnSubirPublicacion = document.getElementById('btn-subir-publicacion')
 const titulo = document.getElementById('titulo')
 const descripcion = document.getElementById('descripcion')
 const imagenUrl = document.getElementById('imagen-url')
+
 let resultado = ''
 let opcion = ''
 
@@ -43,3 +44,20 @@ btnCrear.addEventListener('click', () => {
     imagenUrl.value = ""
 })
 
+// Forma para escuchar el evento eliminar
+document.addEventListener('click', (event) => {
+    if(event.target.matches('#btn-eliminar')) {
+        const article = event.target.closest('.col-4') // Busca el elemento col-4 más cercano a article
+        const idArticle = article.dataset.id
+
+        fetch(`http://localhost:3000/api/foro/${idArticle}`, { //Creamos fetch para eliminar la publicación(lo elimina por ID)
+            method: 'DELETE'
+        }).then(res => {
+            if(res.ok){
+                article.remove()
+            }
+        }).catch(err => {
+            console.error(err)
+        })
+    }
+})
