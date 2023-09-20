@@ -50,14 +50,33 @@ document.addEventListener('click', (event) => {
         const article = event.target.closest('.col-4') // Busca el elemento col-4 más cercano a article
         const idArticle = article.dataset.id
 
-        fetch(`http://localhost:3000/api/foro/${idArticle}`, { //Creamos fetch para eliminar la publicación(lo elimina por ID)
-            method: 'DELETE'
-        }).then(res => {
-            if(res.ok){
-                article.remove()
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "No vas a poder revertir ésta decisión",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText:'Si, eliminar'
+        }).then((result)=>{
+            if(result.isConfirmed){
+                fetch(`http://localhost:3000/api/foro/${idArticle}`, { //Creamos fetch para eliminar la publicación(lo elimina por ID)
+                    method: 'DELETE'
+                }).then(res => {
+                    if(res.ok){
+                        article.remove()
+                    }
+                }).catch(err => {
+                    console.error(err)
+                })
+                Swal.fire(
+                    'Eliminada!',
+                    'La publicación fue eliminada.',
+                    'aprobado'
+                )
             }
-        }).catch(err => {
-            console.error(err)
         })
+
+        
     }
 })
