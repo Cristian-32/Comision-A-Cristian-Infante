@@ -7,8 +7,9 @@ const publicacion = document.getElementById('publicacion');
 const imagenUrl = document.getElementById('imagen-url');
 const formulario = document.getElementById('formulario');
 
-let resultado = ""
-let opcion = ""
+let resultado = "";
+let opcion = "";
+let idFormulario = "";
 
 //console.log(contenedor)
 
@@ -96,6 +97,7 @@ document.addEventListener('click', (event) => {
         publicacion.value = editarPublicacion;
         opcion = "editar";
         btnSubirPublicacion.textContent = "Editar";
+        idFormulario = idArticle;
         modal.show();      
     }
 })    
@@ -128,7 +130,24 @@ formulario.addEventListener("submit", (event) => {
     }
 
     if(opcion === "editar") {
-        
+        const nuevoForo = {
+            title: titulo.value,
+            query: publicacion.value,
+            imageUrl: imagenUrl.value
+        };
+        fetch(`http://localhost:3000/api/foro/${idFormulario}`,{
+            method: "PUT",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(nuevoForo)
+        }).then(res => {
+            if(res.ok){
+                alert('Publicación editada satisfactoriamente')
+                modal.hide();
+                location.reload();
+            }
+        })
     }
 
 })
