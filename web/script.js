@@ -3,13 +3,13 @@ const btnCrear = document.getElementById('btn-crear')
 const modal = new bootstrap.Modal(document.getElementById('modal'))
 const btnSubirPublicacion = document.getElementById('btn-subir-publicacion')
 const titulo = document.getElementById('titulo')
-const descripcion = document.getElementById('descripcion')
+const publicacion = document.getElementById('publicacion')
 const imagenUrl = document.getElementById('imagen-url')
 
-let resultado = ''
-let opcion = ''
+let resultado = ""
+let opcion = ""
 
-console.log(contenedor)
+//console.log(contenedor)
 
 fetch('http://localhost:3000/api/foro')
     .then(res => res.json())
@@ -34,13 +34,13 @@ fetch('http://localhost:3000/api/foro')
         });
     })
 
-// Botón para crear nueva publicación utilizando el modal de bootstrap
+// Botón para abrir el modal de una nueva publicación
 btnCrear.addEventListener('click', () => {
-    option = "nuevo"
+    opcion = "nuevo"
     btnSubirPublicacion.textContent = "Publicar"
     modal.show()
     titulo.value = "" // Al cancelar la publicación y hacer una nueva los espacios para ingresar están vacíos
-    descripcion.value = ""
+    publicacion.value = ""
     imagenUrl.value = ""
 })
 
@@ -50,6 +50,7 @@ document.addEventListener('click', (event) => {
         const article = event.target.closest('.col-4') // Busca el elemento col-4 más cercano a article
         const idArticle = article.dataset.id
 
+        // Se agrega con el fetch un switch alert para confirmar la eliminación de la pucbilcación
         Swal.fire({
             title: '¿Estás seguro?',
             text: "No vas a poder revertir ésta decisión",
@@ -80,3 +81,26 @@ document.addEventListener('click', (event) => {
         
     }
 })
+
+// Forma para escuchar el botón editar
+document.addEventListener('click', (event) => {
+    if(event.target.matches('#btn-editar')) {
+        const article = event.target.closest('.col-4') // Busca el elemento col-4 más cercano a article
+        const idArticle = article.dataset.id
+        const editarImagenUrl = article.children[0].children[0].src; // Recupera los datos del formulario(imagen,titulo y publicación)
+        const editarTitulo = article.children[0].children[1].children[0].textContent;
+        const editarPublicacion = article.children[0].children[1].children[1].textContent;
+
+        imagenUrl.value = editarImagenUrl;
+        titulo.value = editarTitulo;
+        publicacion.value = editarPublicacion;
+        opcion = "editar";
+        btnSubirPublicacion.textContent = "Editar";
+        modal.show();
+
+        
+
+    
+        
+    }
+})    
