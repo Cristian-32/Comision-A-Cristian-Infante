@@ -1,10 +1,11 @@
-const contenedor = document.getElementById('contenedor-row')
-const btnCrear = document.getElementById('btn-crear')
-const modal = new bootstrap.Modal(document.getElementById('modal'))
-const btnSubirPublicacion = document.getElementById('btn-subir-publicacion')
-const titulo = document.getElementById('titulo')
-const publicacion = document.getElementById('publicacion')
-const imagenUrl = document.getElementById('imagen-url')
+const contenedor = document.getElementById('contenedor-row');
+const btnCrear = document.getElementById('btn-crear');
+const modal = new bootstrap.Modal(document.getElementById('modal'));
+const btnSubirPublicacion = document.getElementById('btn-subir-publicacion');
+const titulo = document.getElementById('titulo');
+const publicacion = document.getElementById('publicacion');
+const imagenUrl = document.getElementById('imagen-url');
+const formulario = document.getElementById('formulario');
 
 let resultado = ""
 let opcion = ""
@@ -47,10 +48,10 @@ btnCrear.addEventListener('click', () => {
 // Forma para escuchar el evento eliminar
 document.addEventListener('click', (event) => {
     if(event.target.matches('#btn-eliminar')) {
-        const article = event.target.closest('.col-4') // Busca el elemento col-4 más cercano a article
+        const article = event.target.closest('.col-4') // Busca el elemento más cercano a col-4 
         const idArticle = article.dataset.id
 
-        // Se agrega con el fetch un switch alert para confirmar la eliminación de la pucbilcación
+        // Se agrega un switch alert para confirmar la eliminación de la pubilcación
         Swal.fire({
             title: '¿Estás seguro?',
             text: "No vas a poder revertir ésta decisión",
@@ -61,7 +62,8 @@ document.addEventListener('click', (event) => {
             confirmButtonText:'Si, eliminar'
         }).then((result)=>{
             if(result.isConfirmed){
-                fetch(`http://localhost:3000/api/foro/${idArticle}`, { //Creamos fetch para eliminar la publicación(lo elimina por ID)
+                // Se utiliza fetch para implementar la eliminación de la publicación(DELETE)
+                fetch(`http://localhost:3000/api/foro/${idArticle}`, { 
                     method: 'DELETE'
                 }).then(res => {
                     if(res.ok){
@@ -76,9 +78,7 @@ document.addEventListener('click', (event) => {
                     'aprobado'
                 )
             }
-        })
-
-        
+        })      
     }
 })
 
@@ -96,11 +96,39 @@ document.addEventListener('click', (event) => {
         publicacion.value = editarPublicacion;
         opcion = "editar";
         btnSubirPublicacion.textContent = "Editar";
-        modal.show();
-
-        
-
-    
-        
+        modal.show();      
     }
 })    
+
+// Forma para escuchar el evento submit 
+formulario.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if(opcion === "nuevo"){
+        const nuevoForo =  {
+            title: titulo.value,
+            query: publicacion.value,
+            imageUrl: imagenUrl.value,
+        };
+
+        // Se utiliza fetch para implementar la creación de la nueva publicación(POST)
+        fetch('http://localhost:3000/api/foro', {
+            method: "POST",
+            headers:{
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(nuevoForo),
+        }).then((res) => {
+            if(res.ok){
+                alert('Publicación creada satisfactoriamente');
+                modal.hide();
+                location.reload();
+            }
+        })
+    }
+
+    if(opcion === "editar") {
+        
+    }
+
+})
