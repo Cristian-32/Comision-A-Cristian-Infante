@@ -2,12 +2,6 @@
     font-family: 'Monserrat',sans-serif;
 }
 
-#header{
-    background-color: black;
-}
-
-
-
 #footer{
     background-color: black;
 }
@@ -26,10 +20,22 @@
 
 #btn-subir-publicacion{
     background-color: grey;
+    font-weight: bold;
+    color: white;
+}
+
+#btn-subir-publicacion:hover{
+    background: darkgreen;
 }
 
 #btn-cerrar{
     background-color: grey;
+    font-weight: bold;
+    color: white;    
+}
+
+#btn-cerrar:hover{
+    background: darkred;
 }
 
 #btn-crear{
@@ -38,8 +44,20 @@
 
 #btn-editar{
     background-color: grey;
+    font-weight: bold;
+    color: white;
+}
+
+#btn-editar:hover{
+    background: darkblue;
 }
 
 #btn-eliminar{
     background-color: grey;
+    font-weight: bold;
+    color: white;
+}
+
+#btn-eliminar:hover{
+    background-color: darkred;
 }
