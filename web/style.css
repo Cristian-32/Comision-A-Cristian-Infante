@@ -1,7 +1,45 @@
+*{
+    font-family: 'Monserrat',sans-serif;
+}
+
+#header{
+    background-color: black;
+}
+
+
+
+#footer{
+    background-color: black;
+}
+
+#main{
+    background-image: url(/web/img/fondo-main.jpg);
+}
+
+#margen-div{
+    margin-bottom: 10px;    
+}
+
+#bordes{
+    border: solid blue;
+}
+
+#btn-subir-publicacion{
+    background-color: grey;
+}
+
+#btn-cerrar{
+    background-color: grey;
+}
+
+#btn-crear{
+    margin: 10px 0 10px 0;
+}
+
 #btn-editar{
-    border: 5px solid black;
+    background-color: grey;
 }
 
 #btn-eliminar{
-    border: 5px solid black;
+    background-color: grey;
 }
