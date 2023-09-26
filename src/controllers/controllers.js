@@ -74,6 +74,16 @@ export const ctrlDeleteForo = async (req,res) => {
 }
 
 // Controlador para mostrar la vista
-export const ctrlView = (req, res) => {
-    res.render('foro.ejs')
+export const ctrlView = async (req, res) => {
+
+    try{
+        const foros = await tareasModelo.findAll();
+        if(!foros) return res.status(404)
+        return res.status(200).render('foro.ejs', {foros})
+    } catch(error){
+        console.error(error)
+        return res.status(500).json({
+            message:'Error Server'
+        })
+    }
 }

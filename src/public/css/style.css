@@ -1,0 +1,56 @@
+#footer{
+    background-color: black;
+}
+
+#main{
+    background-image: url(img/fondo-main.jpg);
+}
+
+
+#bordes{
+    border: solid blue;
+}
+
+#btn-subir-publicacion{
+    background-color: grey;
+    font-weight: bold;
+    color: white;
+}
+
+#btn-subir-publicacion:hover{
+    background: darkgreen;
+}
+
+#btn-cerrar{
+    background-color: grey;
+    font-weight: bold;
+    color: white;    
+}
+
+#btn-cerrar:hover{
+    background: darkred;
+}
+
+#btn-crear{
+    margin: 10px 0 10px 0;
+}
+
+#btn-editar{
+    background-color: grey;
+    font-weight: bold;
+    color: white;
+}
+
+#btn-editar:hover{
+    background: darkblue;
+}
+
+#btn-eliminar{
+    background-color: grey;
+    font-weight: bold;
+    color: white;
+}
+
+#btn-eliminar:hover{
+    background-color: darkred;
+}
