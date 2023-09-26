@@ -11,7 +11,7 @@ Content-Type: application/json
     "imageUrl":"https://www.xtrafondos.com/wallpapers/resized/paisaje-digital-en-atardecer-5846.jpg?s=large"
 }
 ### Actualizar tarea
-PUT http://localhost:3000/api/foro
+PUT http://localhost:3000/api/foro/20
 Content-Type: application/json
 
 {
@@ -22,4 +22,4 @@ Content-Type: application/json
 
 
 ### Eliminar tarea
-DELETE http://localhost:3000/api/foro
+DELETE http://localhost:3000/api/foro/14

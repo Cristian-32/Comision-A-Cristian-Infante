@@ -13,7 +13,7 @@ export const tareasModelo = dataBase.define('Tarea',{
     imageUrl:{
         type: DataTypes.STRING,
         allownull: true
-    }
+    },
 },{
     timestamps: true
 })
