@@ -14,14 +14,14 @@ console.log(__dirname);
 app.use(express.json());
 app.use(cors())
 app.use('/', foroRouter);
-app.use(express.static(path.join(__dirname, "src", "public")))
+app.use(express.static(path.join(__dirname, "src", "public"))) // Configurado para utilizar EJS
 app.set('views', path.join(__dirname, "src", "views"))
 
 
 
 
 app.listen(port, () => {
-    console.log(`Server Listening http://localhost:${port}`);
+    console.log(`Server Listening http://localhost:${port}/foro`);
     dbStart();
 })
 

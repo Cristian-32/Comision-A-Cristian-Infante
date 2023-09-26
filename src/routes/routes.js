@@ -1,9 +1,12 @@
 import { Router } from 'express'
-import { ctrlGetForo, ctrlCreateForo, ctrlUpdateForo,ctrlDeleteForo } from '../controllers/controllers.js';
+import { ctrlGetForo, ctrlCreateForo, ctrlUpdateForo,ctrlDeleteForo, ctrlView } from '../controllers/controllers.js';
 import { createSchematarea } from '../models/schemas/schema.tarea.js';
 import { validacion } from '../middleware/validacion.js';
 
 const foroRouter = Router();
+
+//Ruta para las vistas
+foroRouter.get('/foro', ctrlView)
 
 // Direccion de una API para traer todas las tareas
 foroRouter.get('/api/foro', ctrlGetForo)
