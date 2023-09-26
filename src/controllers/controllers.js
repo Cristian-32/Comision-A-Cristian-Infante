@@ -75,5 +75,5 @@ export const ctrlDeleteForo = async (req,res) => {
 
 // Controlador para mostrar la vista
 export const ctrlView = (req, res) => {
-    res.render('index.ejs')
+    res.render('foro.ejs')
 }
