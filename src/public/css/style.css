@@ -7,6 +7,12 @@
 }
 
 
+.img-publicacion{
+
+    height: 200px;
+    object-fit: cover;
+}
+
 #bordes{
     border: solid blue;
 }
@@ -53,4 +59,16 @@
 
 #btn-eliminar:hover{
     background-color: darkred;
+}
+
+#publicado{
+    font-weight: bold;
+}
+
+#editado{
+    font-weight: bold;
+}
+
+#id-publicacion{
+    font-weight: bold;
 }

@@ -4,6 +4,8 @@ import { dbStart } from './src/config/foro_db.js';
 import  cors  from 'cors';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import helmet from 'helmet';
+import morgan from 'morgan';
 
 const port = 3000;
 const app = express();
@@ -13,6 +15,10 @@ console.log(__dirname);
 
 app.use(express.json());
 app.use(cors())
+app.use(helmet({
+    contentSecurityPolicy: false
+}))
+app.use(morgan('dev'))
 app.use('/', foroRouter);
 app.use(express.static(path.join(__dirname, "src", "public"))) // Configurado para utilizar EJS
 app.set('views', path.join(__dirname, "src", "views"))
